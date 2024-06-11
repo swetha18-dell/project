@@ -1,0 +1,117 @@
+########## DFT DEFINITION FILE###################
+#set_dft_signal -view spec  -type ScanDataIn  -port SPI0_MISO
+#set_dft_signal -view spec  -type ScanDataOut -port SPI0_MOSI
+
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_1/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_2/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_3/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_4/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_5/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_6/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_7/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_8/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_9/Z 
+#set_dft_signal -view spec  -type ScanDataIn  -hookup_pin i_edt_in_10/Z 
+
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_1
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_2
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_3
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_4
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_5
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_6
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER0_7
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER1_0
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER1_1
+set_dft_signal -view spec  -type ScanDataIn  -port VFCOUNTER1_2
+
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out1_pwm1/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out2_pwm2/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out3_pwm3/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out4_pwm4/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out5_pwm5/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out6_pwm6/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out7_pwm7/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out8_pwm8/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out8_pwm9/I1
+#set_dft_signal -view spec  -type ScanDataOut -hookup_pin o_mx_edt_out8_pwm10/I1
+
+
+set_dft_signal -view spec  -type ScanDataOut -port PWM_1
+set_dft_signal -view spec  -type ScanDataOut -port PWM_2
+set_dft_signal -view spec  -type ScanDataOut -port PWM_3
+set_dft_signal -view spec  -type ScanDataOut -port PWM_4
+set_dft_signal -view spec  -type ScanDataOut -port PWM_5
+set_dft_signal -view spec  -type ScanDataOut -port PWM_6
+set_dft_signal -view spec  -type ScanDataOut -port PWM_7
+set_dft_signal -view spec  -type ScanDataOut -port PWM_8
+set_dft_signal -view spec  -type ScanDataOut -port PWM_9
+set_dft_signal -view spec  -type ScanDataOut -port PWM_10
+
+#arjun
+set_dft_signal -view spec -type ScanEnable -port BOOT_OPTION1 -hookup_pin U_SCAN_EN_HOOKUP/Z
+
+set_scan_path chain1 -view spec -scan_data_in VFCOUNTER0_1 -scan_data_out PWM_1
+set_scan_path chain2 -view spec -scan_data_in VFCOUNTER0_2 -scan_data_out PWM_2
+set_scan_path chain3 -view spec -scan_data_in VFCOUNTER0_3 -scan_data_out PWM_3
+set_scan_path chain4 -view spec -scan_data_in VFCOUNTER0_4 -scan_data_out PWM_4
+set_scan_path chain5 -view spec -scan_data_in VFCOUNTER0_5 -scan_data_out PWM_5
+set_scan_path chain6 -view spec -scan_data_in VFCOUNTER0_6 -scan_data_out PWM_6
+set_scan_path chain7 -view spec -scan_data_in VFCOUNTER0_7 -scan_data_out PWM_7
+set_scan_path chain8 -view spec -scan_data_in VFCOUNTER1_0 -scan_data_out PWM_8
+set_scan_path chain9 -view spec -scan_data_in VFCOUNTER1_1 -scan_data_out PWM_9
+set_scan_path chain10 -view spec -scan_data_in VFCOUNTER1_2 -scan_data_out PWM_10
+
+#set_scan_path chain1 -view spec -scan_data_in SPI0_MISO -scan_data_out SPI0_MOSI
+
+#arjun
+set_scan_configuration -chain_count 10 -clock_mixing mix_clocks_not_edges
+
+#arjun
+#set_dft_configuration -fix_set enable
+#set_dft_configuration -fix_reset enable
+set_dft_configuration -fix_bidirectional disable
+#set_dft_configuration -fix_bidirectional enable
+#set_dft_configuration -fix_clock enable 
+set_dft_configuration -fix_clock enable -fix_reset enable -fix_set enable
+
+set_dft_signal -view exist  -active 1  -type TestMode  -port TEST_MODE
+set_dft_signal -view spec -type TestMode  -port TEST_MODE
+
+set_dft_signal -view existing_dft -type ScanClock -port CLK -timing [list 45 95 ]
+set_dft_signal -view existing_dft -type ScanClock -port TCK -timing [list 45 95]
+set_dft_signal -view existing_dft -type ScanClock -port MIL1553_CLK -timing [list 45 95]
+set_dft_signal -view existing_dft -type ScanClock -port GPTIMER0_CLK -timing [list 45 95]
+set_dft_signal -view existing_dft -type ScanClock -port GPTIMER1_CLK -timing [list 45 95]
+set_dft_signal -view existing_dft -type ScanClock -port GPTIMER2_CLK -timing [list 45 95]
+set_dft_signal -view existing_dft -type ScanClock -port GPTIMER3_CLK -timing [list 45 95]
+
+set_dft_signal -view spec -type Testdata -port CLK
+set_dft_signal -view spec -type Testdata -port TCK
+set_dft_signal -view spec -type Testdata -port MIL1553_CLK
+set_dft_signal -view spec -type Testdata -port GPTIMER0_CLK
+set_dft_signal -view spec -type Testdata -port GPTIMER1_CLK
+set_dft_signal -view spec -type Testdata -port GPTIMER2_CLK
+set_dft_signal -view spec -type Testdata -port GPTIMER3_CLK
+
+set_autofix_configuration -type clock -method mux -test_data CLK -control_signal TEST_MODE
+#set_autofix_configuration -type clock -method mux -test_data TCK -control_signal test_mode
+#set_autofix_configuration -type clock -method mux -test_data MIL1553_CLK -control_signal test_mode
+#set_autofix_configuration -type clock -method mux -test_data GPTIMER0_CLK -control_signal test_mode
+#set_autofix_configuration -type clock -method mux -test_data GPTIMER1_CLK -control_signal test_mode
+#set_autofix_configuration -type clock -method mux -test_data GPTIMER2_CLK -control_signal test_mode
+#set_autofix_configuration -type clock -method mux -test_data GPTIMER3_CLK -control_signal test_mode
+
+#set_dft_signal -view existing_dft -type ScanEnable -port RESET -active_state 1
+#set_dft_signal -view existing_dft -type ScanEnable -port RESET -active_state 1 -hookup_pin top/soc_reset/OUT_RST
+#fail5
+#set_dft_signal -view existing_dft -type Reset -port RESET -active_state 0 -hookup_pin top/soc_reset/OUT_RST
+set_dft_signal -view existing_dft -type Reset -port RESET -active_state 0
+set_dft_signal -view spec -type Testdata -port RESET
+set_autofix_configuration -type reset -method mux -fix_data enable -test_data RESET -control_signal TEST_MODE
+#set_autofix_configuration -type reset -method gate -fix_data enable -test_data RESET -control_signal BOOT_OPTION1
+
+set_dft_signal -view existing_dft -type Reset -port TRST -active_state 0
+set_dft_signal -view spec -type Testdata -port TRST
+#set_autofix_configuration -type reset -method gate -fix_data enable -test_data TRST -control_signal BOOT_OPTION1
+
+                                                                                                               
