@@ -1,0 +1,13 @@
+set_dont_use tsl18fs120_scl_ss/slnht*
+set_dont_use tsl18fs120_scl_ss/skbrb*
+set_dont_use  tsl18fs120_scl_ss/slbhb*
+set_dont_use tsl18fs120_scl_ss/slnh*
+set_dont_use  tsl18fs120_scl_ss/slnl*
+#set_dont_use tsl18fs120_scl_ff/slnht*
+#set_dont_use tsl18fs120_scl_ff/skbrb*
+#set_dont_use  tsl18fs120_scl_ff/slbhb*
+#set_dont_use tsl18fs120_scl_ff/slnh*
+#set_dont_use  tsl18fs120_scl_ff/slnl*
+#set_dont_use tsl18fs120_scl_ff/jk*
+set_dont_use  tsl18fs120_scl_ss/jk*
+#set_dont_use {tsl18cio150_max/pc3d00 tsl18cio150_min/pc3d00 }
